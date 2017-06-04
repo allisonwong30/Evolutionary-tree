@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css?family=Cardo|Oswald:300|Raleway:300');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #333333;
+}
+
+body, p{
+  color: #fff;
+}
+
+path{
+  stroke: #fff;
+}
+text{
+  fill: #fff;
+}
+
+svg {
+  margin: 0px auto;
+}
+
+#current-hall{
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%); 
+}
+
+#mammal-card {
+  max-width: 15%;
+  margin: 2px auto;
+  position: absolute;
+  top: .5em;
+  right: .5em;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5%;
+}
+
+#mammal-card span,  #mammal-card p, #mammal-card img{
+  margin: 0px auto;
+  display: block;
+  text-align: center;
+}
+
+#mammal-common {
+  font-weight: bold;
+  font-size: .8em;
+}
+
+#mammal-science {
+  font-style: italic;
+}
+
+#mammal-photo {
+  width: 80%;
+  height: 80%;
+}
+
+#mammal-desc {
+  font-size: .6em;
+}
+
+#legend{
+  width: 15%;
+  height: 10%;
+  position:absolute;
+  top:1em;
+  left:18em;
+}
+ 
+#legend text {
+  font-size: .7em;
+}
+button {
+  margin-left:1%;
+  text-align: center;
+  color: white;
+  background-color: #ccc;
+  font-family:"Raleway";
+  padding: 1vh;
+}
+
+#nav {
+  list-style: none;
+}
+#nav li {
+  display: inline-block;
+  font-family: "Raleway";
+  float: left;
+  display: block;
+  position: relative;
+  z-index: 500;
+  font-size: .75em;
+
+}
+
+#nav li a {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+
+li a, ul a{
+  padding: 3%;
+}
+
+
+#menu {
+  border-left: .2em solid lightgray;
+  border-top: .2em solid lightgray;
+  border-right: .2em solid gray;
+  border-bottom: .2em solid gray;
+  font-size: .95em;
+  padding: 1vh;
+  text-align: center;
+  background: #ccc;
+}
+
+#nav ul {
+  list-style: none;
+  position: absolute;
+  left: 0;
+  padding: 0;
+}
+
+#nav ul li {
+  float: left;
+  border-top: 1px solid #fff;
+  white-space: nowrap;
+  font-size: .9em;
+  width: 115%;
+}
+
+#nav ul a {
+  display: block;
+  color: #fff;
+  text-align: left;
+  width: auto;
+}
+
+#nav a:hover {
+  text-decoration: none;
+  background-color: #F86808;
+}
+
+button:hover {
+  text-decoration: none;
+  background-color: #F86808;
+}
+
+text{
+  font-family: 'Raleway', sans-serif;
+}
+
+.VU{
+  fill: #ffb905;
+  font-size: 1.2em;
+}
+
+.EN{
+  fill: #FF8C00;
+  font-size: 1.2em;
+}
+
+.EW{
+  fill: #a32e10;
+  font-size: 1.2em;
+}
+
+.CR{
+  fill: #E10F2B;
+  font-size: 1.2em;
+}
+
+.NT{
+  fill: black;
+}
+
+
+#show-length {
+  position: absolute;
+  top: 0.625em;
+  left: 0.625em;
+}
+
+.links {
+  fill: none;
+  stroke: #000;
+}
+
+.link-extensions {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .25;
+}
+
+.labels {
+  font: .65em sans-serif;
+}
+
+.AFRICAN-MAMMALS {
+  stroke: #b07cc3 !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.african {
+  background: #b07cc3;
+}
+
+.BIODIVERSITY {
+  stroke: #a187c3 !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.bio {
+  background: #a187c3;
+}
+
+.ASIAN-MAMMALS {
+  stroke: #968fc3 !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.asian {
+  background: #968fc3;
+}
+
+.EXTINCT {
+  stroke: #a0a3c7 !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.extinct {
+  background: #a0a3c7;
+}
+
+.PRIMATES {
+  stroke: #d4e7f4 !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.primates {
+  background :#d4e7f4;
+}
+
+.NYSTATE {
+  stroke: #a7c6db !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.nystate {
+  background: #a7c6db;
+}
+
+.ORIGINS {
+  stroke: #436f90 !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.origins {
+  background: #436f90;
+}
+
+.AMERICAN-MAMMALS {
+  stroke: #1a1896 !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.american {
+  background: #1a1896;
+}
+
+.OCEAN-LIFE {
+  stroke: #1c0369 !important;
+  stroke-width: 0.188em;
+  animation: heartbeat 1s;
+}
+
+.ocean {
+  background: #1c0369;
+}
+
+.none {
+  background: #0e0134;
+}
+
+.link--subset {
+  stroke: #303b49 !important;
+  stroke-width: 0.156em;
+}
+
+.link-extension--active, .link-extension--subset {
+  stroke-opacity: .6;
+  stroke: black;
+}
+
+.label--active, .label--subset {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#tree{
+  margin: 0px auto;
+  text-align: center;
+}
+
+.mammal_bio{  
+  max-width: 18.75em;
+  position: absolute;
+  top: 1.250em;
+  right: 1.250em;
+  border: 0.063em solid black;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  margin: 0em auto;
+}
+span, p{
+  font-size: .7em;
+}
+
+.scale {
+   animation: scale 2s;
+}
+
+
+@keyframes heartbeat
+{
+  50%
+  {
+    transform: scale( .99 );
+  }
+  100%
+  {
+    transform: scale( 1 );
+  } 
+}
+

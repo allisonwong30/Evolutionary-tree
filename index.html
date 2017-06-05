@@ -1,93 +1,153 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<html>
+<head>
+<style>
 
-<head> 
-  <link rel="stylesheet" type="text/css" href="main.css">
+#mammal_card{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: 2px solid black;
+  text-align: center;
+  margin: 0px auto;
+  font-size: .8em;
+}
+
+#mammal_card img, #mammal_card p, #mammal_card span{
+  margin: 5%;
+}
+
+#mammal_card img{
+  max-width: 250px;
+}
+body {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+#show-length {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
+.VU{
+  fill:#FFC82E;
+  font-size: 1.3em; /*yellow*/
+}
+
+
+.EN{
+  fill: #FF8C00;
+  font-size: 1.3em; /*orange*/
+}
+.CR{
+  fill:#E10F2B;
+  font-size: 1.3em; /*red*/
+}
+.EW{
+  fill:#9C3B30;
+  font-size: 1.3em; /*brown*/
+}
+.EX{
+  fill:black;
+  
+}
+#legend{
+  position:absolute;
+  top:0px;
+  right:300px;
+
+}
+
+
+.links {
+  fill: none;
+  stroke: #000;
+}
+
+.link-extensions {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .25;
+}
+
+.labels {
+  font: 10px Avenir;
+}
+
+.link--active {
+  stroke: #000 !important;
+  stroke-width: 1.5px;
+}
+
+.link-extension--active {
+  stroke-opacity: .6;
+}
+
+.label--active {
+  font-weight: bold;
+}
+
+</style>
 </head>
-
 <body>
-<h2 id="current-hall"></h2>
+<svg width="200" height="100" id="legend">
+  <circle cx="5" cy="10" r="5" fill="black" />
+  <text font-family=Avenir font-size="12" dx="15" dy="13" fill="black">Least Concern </text>
 
-<div id="mammal-card">
-<img id="mammal-photo"/>
-<span id="mammal-common"></span>
-<span id="mammal-science"></span>
-<span id="mammal-hall"></span>
-<span id="mammal-conv"></span>
-<p id="mammal-desc"></p>
+  <circle cx="5" cy="22" r="5" fill=#FFC82E />
+  <text font-family=Avenir font-size="12" dx="15" dy="25" fill="black">Vulnerable</text>
 
+  <circle cx="5" cy="34" r="5" fill=#FF8C00 />
+  <text font-family=Avenir font-size="12" dx="15" dy="37" fill="black">Endangered</text>
 
-</div>
-		<ul id="nav"> 
-			<li><a href="#" id="menu">Select Hall</a> 
-				<ul id="dropdown"> 
-				    <li class = "african"><a href = "#" onclick="highlightHall('HALL OF AFRICAN MAMMALS', 'AFRICAN-MAMMALS')" >Hall of African Mammals</a></li>
-				    <li class = "bio"><a href="#" onclick="highlightHall('HALL OF BIODIVERSITY', 'BIODIVERSITY')">Hall of Biodiversity</a></li>
-				    <li class = "asian"><a href="#" onclick="highlightHall('HALL OF ASIAN MAMMALS', 'ASIAN-MAMMALS')">Hall of Asian Mammals</a></li>
-				    <li class = "extinct"><a href="#" onclick="highlightHall('MAMMALS AND THEIR EXTINCT RELATIVES', 'EXTINCT')">Hall of Mammals and their Extinct Relatives</a></li>
-				    <li class = "primates"><a href="#" onclick="highlightHall('HALL OF PRIMATES', 'PRIMATES')">Hall of Primates</a></li>
-				    <li class = "nystate"><a href="#" onclick="highlightHall('MAMMALS OF NY STATE', 'NYSTATE')">Hall of Mammals of NY State</a></li>
-				    <li class = "origins"><a href="#" onclick="highlightHall('HALL OF HUMAN ORIGINS', 'ORIGINS')">Hall of Human Origins</a></li>
-				    <li class = "american"><a href="#" onclick="highlightHall('N AMERICAN MAMMALS', 'AMERICAN-MAMMALS')">Hall of North American Mammals</a></li>
-				    <li class = "ocean"><a href="#" onclick="highlightHall('HALL OF OCEAN LIFE', 'OCEAN-LIFE')">Hall of Ocean Life</a></li>
-            <li class = "none"><a href="#" onclick="highlightHall('None Selected', '')">None</a></li>
-				</ul>
-			</li>
-		</ul>
+  <circle cx="5" cy="46" r="5" fill=#E10F2B />
+  <text font-family=Avenir font-size="12" dx="15" dy="49" fill="black">Critical</text>
 
-  <svg width="200" height="100" id="legend">
-    <circle cx="5" cy="10" r="5" fill="black" />
-    <text font-family=Avenir font-size="12" dx="15" dy="13" fill="black">Least Concern or Near Threatened</text>
-    <circle cx="5" cy="22" r="5" fill=#FFC82E />
-    <text font-family=Avenir font-size="12" dx="15" dy="25" fill="black">Vulnerable</text>
-    <circle cx="5" cy="34" r="5" fill=#FF8C00 />
-    <text font-family=Avenir font-size="12" dx="15" dy="37" fill="black">Endangered</text>
-    <circle cx="5" cy="46" r="5" fill=#E10F2B />
-    <text font-family=Avenir font-size="12" dx="15" dy="49" fill="black">Critical</text>
-    <circle cx="5" cy="58" r="5" fill=#9C3B30 />
-    <text font-family=Avenir font-size="12" dx="15" dy="61" fill="black">Extinct in the Wild</text>
-  </svg>
+  <circle cx="5" cy="58" r="5" fill=#9C3B30 />
+  <text font-family=Avenir font-size="12" dx="15" dy="61" fill="black">Extinct in the Wild</text>
 
-<!--button -->
+  
+</svg>
 <button id= "conservation_button" type="button" font-family=Avenir onclick="displayConservation()"> Explore Conservation </button>
-  
-  <div id = "tree"> </div>
-  
+<button id= "hide_button" type="button" font-family=Avenir onclick="hideConservation()"> Hide Conservation </button>
+<div id= "tree"> </div>
 
-<!-- Copyright 2011 Jason Davies https://github.com/jasondavies/newick.js -->
-<center>
-<script>
-  function parseNewick(a){for(var e=[],r={},s=a.split(/\s*(;|\(|\)|,|:)\s*/),t=0;t<s.length;t++){var n=s[t];switch(n){case"(":var c={};r.branchset=[c],e.push(r),r=c;break;case",":var c={};e[e.length-1].branchset.push(c),r=c;break;case")":r=e.pop();break;case":":break;default:var h=s[t-1];")"==h||"("==h||","==h?r.name=n:":"==h&&(r.length=parseFloat(n))}}return r}
-</script>
 
-<!-- Copyright 2016 Mike Bostock https://d3js.org -->
+
+<div id="mammal_card" class="mammal_card">
+  <img id="mammal_image"/>
+  <br>
+  <span id="mammal_name"></span>
+  <br>
+
+  <span id="mammal_sci_name"></span>
+  <br>
+
+  <span id="mammal_hall"></span>
+  <br>
+
+  <p id="summary"></p>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>function parseNewick(a){for(var e=[],r={},s=a.split(/\s*(;|\(|\)|,|:)\s*/),t=0;t<s.length;t++){var n=s[t];switch(n){case"(":var c={};r.branchset=[c],e.push(r),r=c;break;case",":var c={};e[e.length-1].branchset.push(c),r=c;break;case")":r=e.pop();break;case":":break;default:var h=s[t-1];")"==h||"("==h||","==h?r.name=n:":"==h&&(r.length=parseFloat(n))}}return r}</script>
+
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="jquery-3.2.1.min.js"></script>
-<script>
-  $('#mammal-card').hide();
-	$('#dropdown').hide();
+<script src="mammaltree.js"></script>
 
-    $(document).ready(function () {
-        $('#nav li').click(
-        function () {
-            //show submenu
-            if($('#dropdown').is(':visible') == false){
-            	$('#dropdown', this).show();
-            	return;
-            }
-            $('#dropdown', this).hide();
-        }
-        );
-    });
-</script>
 
-<script src="hall.js"></script>
 
 <script>
+
   $("#legend").hide();
 </script>
-</center>
+
+
+
+
+
 
 </body>
 </html>
